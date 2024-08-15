@@ -92,19 +92,211 @@
 #for bike in bikes:
 #    print(bike)
 
-capitals = {
-    "Usa":"Washington DC",
-    "Cuba":"Havana",
-}
+#capitals = {
+#    "Usa":"Washington DC",
+#    "Cuba":"Havana",
+#}
 
-more_capitals = {
-    "Puerto Rico":"San Juan",
-    "China":"Beijing",
-}
+#more_capitals = {
+#    "Puerto Rico":"San Juan",
+#    "China":"Beijing",
+#}
 
 
 #print(capitals.get("Cuba"))
 #print(capitals.keys())
 #print(capitals.values())
-print(capitals.update(more_capitals))
-print(capitals)
+#print(capitals.update(more_capitals))
+#print(capitals)
+
+'''
+counter = 0
+print("Welcome to the lyrics game! ")
+print()
+
+def evaluation(counter):
+  running = True
+  questions = []
+  
+  
+  while running:
+    question_one = input("Never made it as a _____ man: ").lower()
+    questions.append(question_one)
+    if questions[0] == "wise":
+      print("Nice")
+      counter += 1
+      break
+    else:
+      print("Nope try again!")
+      break
+  while running:
+    question_two = input("Couldnt cut it as a _____ man stealing: ").lower()
+    questions.append(question_two)
+    if questions[1] == "poor":
+      print("Das right")
+      counter += 1
+      break
+    else:
+      print("Not that one")
+      break
+  while running:
+    question_three = input("This is how you _____ me: ").lower()
+    questions.append(question_three)
+    if questions[2] == "remind":
+      print("Yesssir")
+      counter += 1
+      break
+    else:
+      print("Nopeeee")
+      break
+
+
+  print(f"You got {counter}/3 questions right! ")
+evaluation(counter)
+'''
+#                               Handling a value error
+#try:
+#    user = int(input("Enter your age: "))
+#    print(f"You're {user} ?")
+    
+#except ValueError:
+#    print("\033[1;31m" "Invalid input")
+
+
+'''                             Handling index errors
+cars = ["ranger", "rouge", "altima", "brz"]
+try: 
+    print(cars[4])
+
+except IndexError:
+    print("Specified index: Empty")
+
+try:
+    print(cars[4])
+
+except IndexError:
+    print("\033[31m Index: Empty")
+'''
+"""
+#                           Handling key errors 
+car_dict = {
+    "Nissan":"Silvia",
+    "Toyota":"Supra"
+}
+try: 
+    print(car_dict["Mazda"])
+    print(car_dict[0])
+
+except KeyError:
+    print("\033[32m Invalid key")
+"""
+''' 
+name, age, last_name = "Chris ", 20, "Alvarez"
+
+try:
+    print(name + age)
+    #print(name + last_name)
+
+except TypeError:
+    print("\033[1;36m Mix-matched data type concatenation")
+'''
+"""
+bikes = ["gix", "yam", "kaw", "duc", "hon"]
+bikes.append("gix")
+bikes.clear()
+bikes.count("gix")
+
+for bike in bikes:
+    print(bike)
+print(bikes.count("gix"))
+"""
+#'''
+
+sasuke = ["Amaterasu", "Fireball Juitsu", "Kirin"]
+killua = ["Rhythm Echo", "Thunderbolt", "Yo-Yos"]
+goku = ["Kamehameha", "Spirit Bomb", "Kaio-ken"]
+meliodas = ["Full Counter", "Hellblaze", "Assault Mode"]
+fighters = ("sasuke", "killua", "goku", "meliodas")
+running = True
+
+
+print("🥊 FIGHTERS: Sasuke   Killua    Goku     Meliodas 🥊")
+player1 = input("Player 1 select a fighter > ").lower()
+player2 = input("Player 2 select a fighter > ").lower()
+
+
+while running:
+  if player2 == player1:
+    print("Please select another fighter")
+    player2 = input("Player 2 select a fighter > ").lower()
+  elif player1 not in fighters:
+    print("Who's that?")
+    player1 = input("Player 1 select a fighter > ").lower()
+  elif player2 not in fighters:
+    print("I dont know that fighter")
+    player2 = input("Player 2 select a fighter > ").lower()
+  break
+
+print(f"Let the match begin! {player1} vs. {player2}")
+print(player1)
+print(player2)
+
+
+
+
+
+
+
+
+
+
+#'''
+"""
+
+import random
+
+def any_sided():
+  user = int(input("Enter your dice # of sides: "))
+  num = random.randint(1, user)
+  print(num)
+
+def six_sided():
+  i = random.randint(1, 6)
+  return i
+
+def eight_sided():
+  x = random.randint(1, 8)
+  return x
+
+def multiply():
+  result = six_sided() * eight_sided()
+  return result
+
+running = True
+
+while running:
+  fighter = input("Enter your fighter: ")
+  hp = multiply()
+  print(f"{fighter} has {hp}hp")
+  restart = input("Do you want to go again? ").lower()
+  if restart[0] != "n":
+    continue
+  else:
+    running = False
+
+"""
+'''
+fruits = ["apple", "banana"]
+fruits.append("mango")
+
+
+#print(type(fruits))
+
+for fruit in fruits:
+    print(fruit * 2)
+  
+for letter in fruits[2]:
+  print(letter * 5)
+'''
+
+
