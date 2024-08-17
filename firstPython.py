@@ -24,7 +24,7 @@
 #tuple = (10, 20, 50.7, "mango", 20, 20)
 
 #print(tuple.index("mango"))
-#print(tuple.count(20))     .count method shows how many times a specififed element is spotted within a list or tuple
+#print(tuple.count(20))     .count method- how many times a specififed element is spotted within a list or tuple
 
 
 
@@ -51,26 +51,6 @@
 #    else:
 #        print("Its somebodys birthday!")
 
-#bikes = {
-#    "Suzuki": "gsxr",
-#    "Yamaha": "r1",
-#    "Kawasaki": "zx10r",
-#    "Honda": "cbr"
-#}
-#more_bikes = {
-#    "Ducati":"v4",
-#    "Aprilia":"rsv4"
-#}
-
-#print(type(bikes))
-#print(bikes.get("Yamaha"))
-#print(bikes.keys())
-#print(bikes.values())
-#print(bikes.update(more_bikes))
-#print(bikes["Suzuki"])
-#print(bikes)
-
-
 
 #games = ["Call-Of-Duty", "GTA", "Midnight Club"]
 #games.append("FarCry")
@@ -84,31 +64,46 @@
 #print(first_name)
 #print(f"{first_name} {last_name}")
 
+"""
+bikes = {
+    "Suzuki": "gsxr",
+    "Yamaha": "r1",
+    "Kawasaki": "zx10r",
+    "Honda": "cbr"
+}
+more_bikes = {
+    "Ducati":"v4",
+    "Aprilia":"rsv4"
+}
+
+print(type(bikes))
+print(bikes.get("Yamaha"))
+print(bikes.keys())
+print(bikes.values())
+bikes.update(more_bikes)
+print(bikes)
+print(bikes["Ducati"])
 
 
-#bikes = ["gix", "yam", "kaw", "hon"]
-#bikes.append("Duc")
 
-#for bike in bikes:
-#    print(bike)
+capitals = {
+    "Usa":"Washington DC",
+    "Cuba":"Havana",
+}
 
-#capitals = {
-#    "Usa":"Washington DC",
-#    "Cuba":"Havana",
-#}
-
-#more_capitals = {
-#    "Puerto Rico":"San Juan",
-#    "China":"Beijing",
-#}
+more_capitals = {
+    "Puerto Rico":"San Juan",
+    "China":"Beijing",
+}
 
 
-#print(capitals.get("Cuba"))
-#print(capitals.keys())
-#print(capitals.values())
-#print(capitals.update(more_capitals))
-#print(capitals)
+print(capitals.get("Cuba"))
+print(capitals.keys())
+print(capitals.values())
+capitals.update(more_capitals)
+print(capitals)
 
+"""
 '''
 counter = 0
 print("Welcome to the lyrics game! ")
@@ -153,6 +148,7 @@ def evaluation(counter):
 
   print(f"You got {counter}/3 questions right! ")
 evaluation(counter)
+
 '''
 #                               Handling a value error
 #try:
@@ -229,6 +225,7 @@ while running:
   if player2 == player1:
     print("Please select another fighter")
     player2 = input("Player 2 select a fighter > ").lower()
+    continue
   elif player1 not in fighters:
     print("Who's that?")
     player1 = input("Player 1 select a fighter > ").lower()
@@ -237,16 +234,22 @@ while running:
     player2 = input("Player 2 select a fighter > ").lower()
   break
 
-print(f"Let the match begin! {player1} vs. {player2}")
-print(player1)
-print(player2)
+print(f"Let the match begin!  {player1} vs. {player2}")
+
+if player1 == "sasuke":
+  player1 = sasuke
 
 
 
+print(player1[1])
 
 
+def number_generator():
+    import random
+    random_number = random.randint(1, 3)
+    return random_number
 
-
+print(fighters[number_generator()])
 
 
 
