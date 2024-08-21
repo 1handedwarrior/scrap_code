@@ -206,14 +206,13 @@ for bike in bikes:
     print(bike)
 print(bikes.count("gix"))
 """
-#'''
+'''
 
-sasuke = ["Amaterasu", "Fireball Juitsu", "Kirin"]
-killua = ["Rhythm Echo", "Thunderbolt", "Yo-Yos"]
-goku = ["Kamehameha", "Spirit Bomb", "Kaio-ken"]
-meliodas = ["Full Counter", "Hellblaze", "Assault Mode"]
-fighters = ("sasuke", "killua", "goku", "meliodas")
-running = True
+sasuke_moves = {"Amaterasu", "Fireball Juitsu", "Kirin"}
+killua_moves = {"Rhythm Echo", "Thunderbolt", "Yo-Yos"}
+goku_moves = {"Kamehameha", "Spirit Bomb", "Kaio-ken"}
+meliodas_moves = {"Full Counter", "Hellblaze", "Assault Mode"}
+fighters = ["sasuke", "killua", "goku", "meliodas"]
 
 
 print("🥊 FIGHTERS: Sasuke   Killua    Goku     Meliodas 🥊")
@@ -221,7 +220,7 @@ player1 = input("Player 1 select a fighter > ").lower()
 player2 = input("Player 2 select a fighter > ").lower()
 
 
-while running:
+while True:
   if player2 == player1:
     print("Please select another fighter")
     player2 = input("Player 2 select a fighter > ").lower()
@@ -234,26 +233,33 @@ while running:
     player2 = input("Player 2 select a fighter > ").lower()
   break
 
+print()
 print(f"Let the match begin!  {player1} vs. {player2}")
+print()
 
-if player1 == "sasuke":
-  player1 = sasuke
-
-
-
-print(player1[1])
-
-
-def number_generator():
-    import random
-    random_number = random.randint(1, 3)
-    return random_number
-
-print(fighters[number_generator()])
+if player1 == fighters[0]:
+  player1_attacks = sasuke_moves
+elif player1 == fighters[1]:
+  player1_attacks = killua_moves
+elif player1 == fighters[2]:
+  player1_attacks = goku_moves
+elif player1 == fighters[3]:
+  player1_attacks = meliodas_moves
 
 
+if player2 == fighters[0]:
+  player2_attacks = sasuke_moves
+elif player2 == fighters[1]:
+  player2_attacks = killua_moves
+elif player2 == fighters[2]:
+  player2_attacks = goku_moves
+elif player2 == fighters[3]:
+  player2_attacks = meliodas_moves
 
-#'''
+
+
+
+'''
 """
 
 import random
@@ -301,5 +307,30 @@ for fruit in fruits:
 for letter in fruits[2]:
   print(letter * 5)
 '''
+"""
+class bikes:
+    
+    
+    def __init__(self, make, year, model):
+        self.make = make
+        self.year = year
+        self.model = model
 
+gix = bikes("Suzuki", 2005, "gsxr")
 
+print(gix.model)
+"""
+
+class Employee:
+    
+
+    def __init__(self, name, age, pay):
+        self.name = name
+        self.age = age
+        self.pay = pay
+
+emp_1 = Employee("Chris", 20, 75000)
+emp_2 = Employee("Mary", 25, 60000)
+
+print(emp_1.__dict__)
+print(emp_2.__dict__)
