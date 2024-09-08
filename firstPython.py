@@ -321,16 +321,62 @@ gix = bikes("Suzuki", 2005, "gsxr")
 print(gix.model)
 """
 
-class Employee:
+'''
+class Employee:                     # blueprint for creating instances
     
+    employer = "company.inc"         # example of a class variable
 
-    def __init__(self, name, age, pay):
-        self.name = name
-        self.age = age
-        self.pay = pay
+# def __init__: special method to create instances
+    def __init__(self, name, age, pay):       # self is labeled self by 
+        self.name = name                      # convention. first arg used  
+        self.age = age                        # for the instance
+        self.pay = pay                # examples of instance variables
 
-emp_1 = Employee("Chris", 20, 75000)
-emp_2 = Employee("Mary", 25, 60000)
+emp_1 = Employee("Chris", 20, 75000)    #first instance
+emp_2 = Employee("Mary", 25, 60000)     #second instance
+emp_3 = Employee("Jane", 30, 80000)     #third instance
 
-print(emp_1.__dict__)
+print(emp_1.__dict__)         #     __dict__ used to see the name-space for each inst 
 print(emp_2.__dict__)
+'''
+"""
+class Player:
+    
+    char_count = 0
+    
+    def __init__(self, user_id, health, weapon):
+        self.user_id = user_id
+        self.health = health
+        self.weapon = weapon
+        Player.char_count += 1
+
+    def showcase(self):                       #   this function is propery referred to as a method
+                                              #   for the Player class
+        return f"Here we have {self.user_id} with a {self.weapon} at {self.health} hp!"
+        #return "Here we have {} with a {} at {} hp!".format(self.user_id, self.weapon, self.health)
+        
+        # f-strings make the code cleaner and more readable
+
+
+
+sly = Player("slyandlethal", 750, "ballista")
+kay = Player("kay", 4000, "D-Skimmi")
+
+#print(Player.char_count)
+#print(sly.showcase())
+"""
+class Motorcycle:
+    lineup = 0
+    
+    def __init__(self, year, make, model):
+        self.year = year
+        self.make = make
+        self.model = model
+        Motorcycle.lineup += 1
+
+
+gix = Motorcycle(2005, "Suzuki", "gsxr")
+yami = Motorcycle(2008, "Yamaha", "r6")
+#print(gix.year)
+print(yami)
+print(Motorcycle.lineup)
