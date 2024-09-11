@@ -11,7 +11,7 @@
 #print(list.count(25))  
 #list.index(25)                 locates index of specified element
 #list.insert(2, "kiwi")         Two arguments  (index, what_gets_inserted )  can be str, int, float or bool
-#list.pop(index)                pops last element by default, can specific .pop(index)
+#list.pop(index)                pops last element by default, can specify .pop(index)
 #list.remove("strawberry")      removes specified element
 #list.sort()
 #list.reverse()
@@ -30,7 +30,7 @@
 
 
 
-                                            # sets are unordered and immutable
+                                            # sets are unordered and mutable
 #set = {10, 37, 600, "Apple"}
 
 #set.add(750)                   I think these are the
@@ -345,12 +345,12 @@ class Player:
     char_count = 0
     
     def __init__(self, user_id, health, weapon):
-        self.user_id = user_id
+        self.user_id = user_id                  # variables are properly reffered to as properties for classes
         self.health = health
         self.weapon = weapon
         Player.char_count += 1
 
-    def showcase(self):                       #   this function is propery referred to as a method
+    def showcase(self):                       #   functions are properly referred to as methods for classes
                                               #   for the Player class
         return f"Here we have {self.user_id} with a {self.weapon} at {self.health} hp!"
         #return "Here we have {} with a {} at {} hp!".format(self.user_id, self.weapon, self.health)
@@ -365,18 +365,118 @@ kay = Player("kay", 4000, "D-Skimmi")
 #print(Player.char_count)
 #print(sly.showcase())
 """
-class Motorcycle:
-    lineup = 0
-    
-    def __init__(self, year, make, model):
-        self.year = year
-        self.make = make
+''' 
+import time
+
+cars = []
+
+class Car:
+    def __init__(self, model, capacity):
         self.model = model
-        Motorcycle.lineup += 1
+        self.capacity = capacity
+
+    def engineSpecs(self, name, hp):
+        print(f"Lets pop the hood on that {self.model}")
+        time.sleep(2)
+        print(f"Damnnnn, is that a {name} ? How much hp?  {hp}")
 
 
-gix = Motorcycle(2005, "Suzuki", "gsxr")
-yami = Motorcycle(2008, "Yamaha", "r6")
-#print(gix.year)
-print(yami)
-print(Motorcycle.lineup)
+for _ in range(2):
+    model = input("Enter your car model: ")
+    cap = int(input("Enter your vehicle capacity: "))
+    car_creator = Car(model, cap)
+    if model in cars:
+        continue
+    else:
+        cars.append(car_creator)
+
+
+#car1 = Car("Durango", 8)
+#car2 = Car("Silvia", 2)
+#car2.engineSpecs('SR20det', 400)
+#car1.engineSpecs('Hemi', 350)
+
+
+while True:
+    suggestion = input("What should we do today? ")
+    size = int(input("How many people you bringing? "))
+    time.sleep(1)
+    if size > 2 and size <= 8:
+        print(f"Aighttt lets take the {user_01.model}")
+    elif size <= 2:
+        print(f"Bet lets take the {user_02.model}")
+
+'''
+
+
+
+
+
+
+
+
+
+# '''
+"""
+class onlineCourse:
+    students = []
+
+    def __init__(self, teacher):
+        self.teacher = teacher
+        
+
+    def enrollStudent(student):
+        if student not in onlineCourse.students:
+          onlineCourse.students.append(student)
+          print(f"{student} has been enrolled! ")
+        else:
+          print("That student is already enrolled")
+
+    def classroom(self):
+       print(f"{self.teacher} is teaching the class of: {onlineCourse.students}")
+          
+
+    
+prof = onlineCourse("Mr. Bean")
+onlineCourse.enrollStudent("John")
+onlineCourse.enrollStudent("Billy")
+onlineCourse.enrollStudent("Joe")
+onlineCourse.enrollStudent("Billy")
+onlineCourse.classroom(prof)
+"""
+
+employees = []
+
+class Employee:
+    def __init__(self, name, salary):
+        self.name = name
+        self.salary = salary
+
+    def raise_amount(self):
+        self.salary *= 1.5
+        print(f"{self.name} has earned a raise! Hes now making: {self.salary}")
+
+    def emp_cars(self):
+        car = input("What car would you like to take to work today? ").lower()
+        print(f"{self.name} is driving his {car} to work! ")
+
+    def avg_pay(self, employees):
+        total = [Employee.salary for i in employees]
+        print(total)
+
+    def hiring(self):
+        num = int(input("How many hirees? "))
+        for i in range(num):
+          name = input("Enter your employee name: ")
+          salary = int(input("Enter your employee salary: "))
+          emp = Employee(name, salary)
+          employees.append(emp)
+          for employee in employees:
+            print(employee.name, employee.salary)
+    
+
+
+emp1 = Employee('Whis', '75000')
+emp1.hiring()
+emp1.avg_pay(employees)
+
