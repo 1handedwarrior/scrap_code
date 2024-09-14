@@ -444,7 +444,7 @@ onlineCourse.enrollStudent("Joe")
 onlineCourse.enrollStudent("Billy")
 onlineCourse.classroom(prof)
 """
-
+'''
 employees = []
 
 class Employee:
@@ -459,10 +459,6 @@ class Employee:
     def emp_cars(self):
         car = input("What car would you like to take to work today? ").lower()
         print(f"{self.name} is driving his {car} to work! ")
-
-    def avg_pay(self, employees):
-        total = [Employee.salary for i in employees]
-        print(total)
 
     def hiring(self):
         num = int(input("How many hirees? "))
@@ -480,3 +476,104 @@ emp1 = Employee('Whis', '75000')
 emp1.hiring()
 emp1.avg_pay(employees)
 
+'''
+"""
+class Book:
+    def __init__(self, title, author):
+        self.title = title
+        self.author = author
+
+    def info(self):
+        print(f"Title: {self.title}")
+        print(f"Author: {self.author}")
+
+class Fiction(Book):
+    def __init__(self, title, author, genre):
+        super().__init__(title, author)
+        self.genre = genre
+    
+    def info(self):
+        super().info()
+        print(f"Genre: {self.genre}")
+
+
+
+book1 = Fiction("Power of now", "Ekhert Tolle", "Spiritual")
+book1.info()
+"""
+
+# To use dicts with classes effeciently, ill practice them more before including.
+'''
+bike_yr = {
+    "gsxr":2005,
+    "cbr":2008,
+    "s1k":2016,
+    "yamaha":'r1'
+}
+bike_yr_two = {
+    "ducati":'v4'
+}
+
+#print(bike_yr.items())        # Packs your key:value pairs into a list, each k:v in a tuple
+#print(bike_yr.get('cbr'))    # get method gets the value for specified key
+#popped = bike_yr.pop('gsxr')  # Tnteresting. pop method return the value of the popped ("key")
+#print(popped)                # var popped = 2005 in this case
+#popped2 = bike_yr.popitem()   # pops and returns the last k:v in your dict
+#print(popped2)               #
+#bike_yr.update(bike_yr_two)   # updates the dict that used the method by adding the (dict2)
+#print(bike_yr.values())      # sticks your values in a list, inside a tuple (i think)
+#print(bike_yr.clear())        # wipes dict clean
+print(bike_yr)
+'''
+
+"""
+class Vehicle:
+    def __init__(self, model, fuel, wheels):
+        self.model = model
+        self.fuel = fuel
+        self.wheels = wheels
+        self.fleet = []
+
+    def wheelie(self):
+        if self.wheels == 2:
+            print(f"{self.model} is riding on {self.wheels // 2} wheel")
+        elif self.wheels % 2 == 0:
+            print(f"{self.model} is riding on {self.wheels // 2} wheels")
+        else:
+            print(f"Sorry. {self.model} cant wheelie!") 
+
+class Motorcycle(Vehicle):
+    def __init__(self, model, fuel, wheels, engine):
+        super().__init(model, fuel, wheels)
+        self.engine = engine
+
+
+class Car(Motorcycle):
+        def __init__(self, model, fuel, wheels, engine):
+            super().__init__(model, fuel, wheels, engine)
+        
+
+gix = Vehicle('gsxr', 'gas', 2)
+uni = Vehicle('Unicycle', 'None', 1)
+nissan = Car('Silvia', 'gas', 4, 'sr20det')
+
+print(nissan.model)
+"""
+
+#with open("testing.txt", "w") as file:
+#    file.write("Testing 1 2 3.")
+
+
+#file = open("testing.txt")
+#for line in file:
+#    print(line)
+
+file = open("testing75.txt", "w")
+file.write("Will this fail or create the file")
+
+for line in file.read():
+    print(line)
+
+
+
+file.close()
