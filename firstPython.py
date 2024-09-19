@@ -1,4 +1,5 @@
-                                            #  Lists are ordered and mutable. 
+####################################  Lists ---->  Ordered, Mutable, Duplicates OK
+
 #name = ["Chris", "Bryan", "Delvys"]
 #age = int(input("Enter your age: "))
 
@@ -17,25 +18,66 @@
 #list.reverse()
 
 
+##########################################  Tuples ----> Ordered, Immutable, Duplicates OK
+
+
+#tuple1 = (10, 20, 50.7, "mango", 20, 20, 20)
+#print(tuple1.index('mango'))             ### Gives index of given values' 1st appearance 
+#print(tuple1.count(20))                  ### Gives num of time the element was seen
+
+#my_tuple = (750, 'Nissin')
+#print(my_tuple.count(750))
+#print(my_tuple[2])
 
 
 
-                                            #  Tuples support indexing since they are ordered, however immutable
-#tuple = (10, 20, 50.7, "mango", 20, 20)
-
-#print(tuple.index("mango"))
-#print(tuple.count(20))     .count method- how many times a specififed element is spotted within a list or tuple
 
 
+################################## Sets ---> Unordered, Mutable, NO duplicates
+"""
+my_set = {10, 37, 600, "Apple"}
+second_set = {600, 750, 'banana', "Apple"}
+third_set  =  {'mango', '4', 600}
+
+my_set.add(750)                   
+third_set.add(750)                   
+#my_set.clear()                    
+same = my_set.intersection(second_set)
+diff = my_set.difference(second_set)
+my_set.difference_update(second_set)    # Needs reviewing
+my_set.intersection_update(second_set)  # this one two, im prob smth easy
+# Before I continue ill just review the set methods now
+
+numbers = {1, 50 ,49, 77, 90, 103}
+odds = {number for number in numbers if number % 2 == 1}
+third_set = {'Nissan', 'sr20', 'det', 77, 78}
+#even_oddSet = {'Odd' if number % 2 == 1 else 'Even' for number in numbers}
+#even_oddList = ['Odd' if number % 2 == 1 else 'Even' for number in numbers]
 
 
 
-                                            # sets are unordered and mutable
-#set = {10, 37, 600, "Apple"}
+#print(numbers)
+#print(odds)
+#print(odds.difference(numbers))
+#print(odds.intersection(numbers))
+#odds.add(40)           # the comp only creates set, doesnt maintain it
+#odds.discard(77)
 
-#set.add(750)                   I think these are the
-#set.clear()                   only methods for sets 
+#subset = numbers.issubset(odds)
+#subset = odds.issubset(numbers)
+#subset = numbers.issuperset(odds)
+#subset = odds.issuperset(numbers)
+#disjoint = odds.isdisjoint(third_set)         # Returns True if sets have no shared elements
+#print(odds.union(numbers))                   # Union doesnt modify OG list
+#print(odds.symmetric_difference(third_set))   # Returns all unique from both sets
+#print(odds.difference(third_set))            # Returns elements in caller, absent in called
+#odds.symmetric_difference_update(numbers)    # Updates caller to difference from called
+#odds.update(third_set)                        # Modifies OG set
 
+
+print(odds)
+print(numbers)
+"""
 
 #name = input("Enter your name: ")
 #age = int(input("Enter your age: ")) 
@@ -64,7 +106,10 @@
 #print(first_name)
 #print(f"{first_name} {last_name}")
 
-"""
+############################### Dictionary ---> Ordered, Mutable, NO Duplicates
+
+###############################                   Bike Dict
+'''
 bikes = {
     "Suzuki": "gsxr",
     "Yamaha": "r1",
@@ -76,16 +121,19 @@ more_bikes = {
     "Aprilia":"rsv4"
 }
 
-print(type(bikes))
-print(bikes.get("Yamaha"))
-print(bikes.keys())
-print(bikes.values())
-bikes.update(more_bikes)
+#print(bikes.get("Yamaha"))         # Gives value of specified key
+#print(bikes.keys())                # Returns a list with all keys
+#print(bikes.values())               # Returns a list with all values
+#print(bikes.items())               # Gives back a list, each k:v in a tuple 
+#bikes.update(more_bikes)            # Update a dict with the (specified) dict
+#print(bikes.popitem())             # Pops and Returns the last k,v pair 
+#print(bikes.pop('Kawasaki'))        # Pops specified key, Returns that value 
+
 print(bikes)
-print(bikes["Ducati"])
 
-
-
+'''
+##################################### Capitals dict
+"""
 capitals = {
     "Usa":"Washington DC",
     "Cuba":"Havana",
@@ -97,13 +145,17 @@ more_capitals = {
 }
 
 
-print(capitals.get("Cuba"))
-print(capitals.keys())
-print(capitals.values())
+#print(capitals.get("Cuba"))
+#print(capitals.keys())
+#print(capitals.values())
 capitals.update(more_capitals)
-print(capitals)
+#print(capitals)
+for k, v in capitals.items():
+    print(f'Country: {k} \n \t Capital: {v}')     ## Just learned why i needed items
 
 """
+
+##############################################  My original attempt at this replit
 '''
 counter = 0
 print("Welcome to the lyrics game! ")
@@ -148,18 +200,68 @@ def evaluation(counter):
 
   print(f"You got {counter}/3 questions right! ")
 evaluation(counter)
-
 '''
-#                               Handling a value error
-#try:
-#    user = int(input("Enter your age: "))
-#    print(f"You're {user} ?")
+##############################################  My up-to-date attempt at this replit 09/15
+"""
+import time
+questions = []
+score = 0
+
+while True:
+    q1 = input("Never made it as a ____ man: \n").lower()
+    if q1 == 'wise':
+        score += 1
+        print("Nice")
+        time.sleep(1)
+    else:
+        print("Nope try again..")
+        time.sleep(1)
+    q2 = input("Couldnt cut it as a ____ man stealing.. \n").lower()
+    if q2 == 'poor':
+        score += 1
+        print("Good")
+        time.sleep(1)
+    else:
+        print("Nope try again..")
+        time.sleep(1)
+    q3 = input("This is how you ______ me \n").lower()
+    if q3 == 'remind':
+        score += 1
+        print("Very well")
+        time.sleep(1)
+        break
+    else:
+        print("Nope try again..")
+        time.sleep(1)
+        break
     
-#except ValueError:
-#    print("\033[1;31m" "Invalid input")
+print(f'Nice jobbb you got {score}/3 correct! ')
+
+"""
 
 
-'''                             Handling index errors
+###########################################  Handling a value error
+######## Color codes
+#\033[1;30m   BOLD GREY
+#\033[1;31m   BOLD RED
+#\033[1;32m   BOLD YELLOW
+#\033[1;33m   BOLD ORANGE
+#\033[1;34m   BOLD BLUE
+#\033[1;35m   BOLD CREAM
+#\033[1;36m   BOLD CYAN
+#\033[1;37m   BOLD WHITE
+#\033[1;38m   BOLD RED
+"""
+while True:
+  try:
+      user = int(input("Enter your age: "))
+      print(f"\033[1;32m  You're {user} ? \033[0m")
+      
+  except ValueError:
+      print("\033[1;31m Invalid input \033[0m")
+"""
+#############################################   Handling index errors 
+'''          
 cars = ["ranger", "rouge", "altima", "brz"]
 try: 
     print(cars[4])
@@ -173,8 +275,9 @@ try:
 except IndexError:
     print("\033[31m Index: Empty")
 '''
+#############################################   Handling key errors 
 """
-#                           Handling key errors 
+
 car_dict = {
     "Nissan":"Silvia",
     "Toyota":"Supra"
@@ -259,7 +362,7 @@ elif player2 == fighters[3]:
 
 
 
-'''
+`'''
 """
 
 import random
@@ -526,54 +629,220 @@ bike_yr_two = {
 print(bike_yr)
 '''
 
+
+
+
+
+
+
+
+
+
+
+################################################ Vehicle class
 """
+
+import time
+
 class Vehicle:
-    def __init__(self, model, fuel, wheels):
-        self.model = model
-        self.fuel = fuel
-        self.wheels = wheels
-        self.fleet = []
+    garage = {}
 
-    def wheelie(self):
-        if self.wheels == 2:
-            print(f"{self.model} is riding on {self.wheels // 2} wheel")
-        elif self.wheels % 2 == 0:
-            print(f"{self.model} is riding on {self.wheels // 2} wheels")
+    def __init__(self, make, model):
+        self.make = make.capitalize()
+        self.model = model.title()
+
+    def __str__(self):
+        return f'Make: {self.make} \nModel: {self.model}'
+    
+class EngineSpecs(Vehicle):
+    
+    def __init__(self, make, model, engine, hp):
+        super().__init__(make, model)
+        self.engine = engine.lower()
+        self.hp = hp
+        self.garage.update({make: model})
+      
+    def __str__(self):
+        if self.engine.count('t') >= 1:
+            return f'The {self.make} {self.model} comes equipped with a turbocharged {self.engine}'
         else:
-            print(f"Sorry. {self.model} cant wheelie!") 
-
-class Motorcycle(Vehicle):
-    def __init__(self, model, fuel, wheels, engine):
-        super().__init(model, fuel, wheels)
-        self.engine = engine
+            return f'The {self.make} {self.model} comes equipped with a {self.engine}'
 
 
-class Car(Motorcycle):
-        def __init__(self, model, fuel, wheels, engine):
-            super().__init__(model, fuel, wheels, engine)
+
+amount_cars = int(input("How many cars do you want to make? "))
+for _ in range(amount_cars):
+    make = input("Enter the make: ")
+    model = input("Enter the model: ")
+    time.sleep(2)
+    engine = input("Enter the engine your car is equipped with: ")
+    car = EngineSpecs(make, model, engine)
+    print(car)
+    time.sleep(2)
+    print()
+for k, v in Vehicle.garage.items():
+            print(f"{k}: {v}")
+    
+
+
+#car = Vehicle('nissan', 'silvia')
+#car2 = Vehicle('toyota', 'supra')
+#car1_engine = EngineSpecs(car.make, car.model, 'sr20det')
+
+
+
+"""
+'''
+import os
+
+with open('Testing.html', 'w') as file:
+    file.write("Lets do some testing")
+    file.seek(15)                    ####### seek- replaces your position in file to given index 
+    file.write("Testing Done...")
+
+os.remove('Testing.html')
+
+'''
+################################################### Bank class
+"""
+class Bank:
+    def __init__(self, name, bank_id):
+        self.name = name
+        self.bank_id = bank_id
+        self.banks = []
+
+    def __str__(self):      # This dunder method allos you to print the object in a string format 
+        return f'Bank: {self.name} \nBank Id: {self.bank_id}'          # otherwise you get mem location
+
+class Account(Bank):
+    def __init__(self, name, bank_id, balance):
+        super().__init__(name, bank_id)
+        self.balance = round(balance, 2)                     ## Applying functions here is handy
+
+
+    def __str__(self):
+        return f"Client Name: {self.name} \nClient Id: {self.bank_id} \nBalance: ${self.balance}"
+    
+    def viewBalance(self):
+        print(f"Your current balance is: ${self.balance}")
+
+    def withdraw(self, amount):
+        if amount > self.balance:
+            print("Insufficient Funds")
+        else:
+            self.balance -= amount
+            print(f"Your current balance is: ${self.balance}")
+
+    def deposit(self, amount):
+        self.balance += amount
+        print(f"${amount} successfully deposited.\nCurrent Balance: ${self.balance}")
         
 
-gix = Vehicle('gsxr', 'gas', 2)
-uni = Vehicle('Unicycle', 'None', 1)
-nissan = Car('Silvia', 'gas', 4, 'sr20det')
 
-print(nissan.model)
+
+
+
+num_of_clients = int(input("How many clients would you like to have? "))
+
+for _ in range(num_of_clients):
+  name = input("Enter your name: ")
+  client = input("Enter your client ID: ")
+  cash = float(input("Enter your current funds: "))
+  acc01 = Account(name, client, cash)
+  #acc01 = Account('Chris', "750", 500)
+  acc01.withdraw(250)
+  print()
+
+"""
+################################################# List Comprehensions
+'''
+nums = [0, 5, 10, 555, 600]
+evens = [num for num in nums if num % 2 == 0]
+odds = [num for num in nums if num % 2 == 1]
+
+fruits = ['apple', 'mango', 'coconut', 'kiwi']
+wFruits = [fruit for fruit in fruits if fruit.count('w') >= 1]
+#print(wFruits)
+
+mySet = {1, 5, 26, 50, 600}
+secondSet = {num for num in mySet if num % 5 == 0}
+
+print(secondSet)
+
+'''
 """
 
-#with open("testing.txt", "w") as file:
-#    file.write("Testing 1 2 3.")
+my_list = ['America', 'Germany', 'Australia']
+nums = [1, 2, 3]
+A_list = [word for word in my_list if word if word.startswith('A')]
+joined = ' /// '.join(my_list)
+
+userI = input("Name/Age/Weight: ")
+name_age = userI.split("/")
+print(f"Name: {name_age[0]} \nAge: {name_age[1]} \nWeight: {name_age[2]}lbs")
+"""
+######################################### Dict Comprehenssion
+'''
+
+capitals = {
+    'United States':'Washington DC',
+    'Puerto Rico':'San Juan',
+    'Australia':'Sydney'
+}
 
 
-#file = open("testing.txt")
-#for line in file:
-#    print(line)
+#for k, v in capitals.items():
+#    print()
+#    print(f"{k}: {v}")
 
-file = open("testing75.txt", "w")
-file.write("Will this fail or create the file")
+#more_capitals = {k:v for (k, v) in capitals.items() if v.lower().count('s') >= 1}
+#more_capitals = {key:value for (key, value) in capitals.items() if value.lower().count('y') >= 1}
 
-for line in file.read():
-    print(line)
+from random import randint, choice
+programmers = ['Delvys', 'Bryan', 'Chris', 'Willie', 'John', 'Jamie']
+choice = choice(programmers)
+print(choice)
+nums = [randint(1, 6)]
+nums
+######## zip function, two lists as args in a dict comprehension
+# zip must takes each sequences first element and links them, the choice gives it a word and zip takes the first letter.
+dev_dic = {k:v for (k, v) in zip(choice, nums) }
+print(dev_dic)
 
 
 
-file.close()
+
+from random import randint, choice
+
+programmers = ['Delvys', 'Bryan', 'Chris', 'Willie', 'John', 'Jamie']
+nums = [1, 2, 3, 4, 5 ,6]
+
+dev_dic = {k:v for (k, v) in zip(programmers, nums)}
+
+for k ,v in dev_dic.items():
+    print(f'Name: {k} \nEmployee ID: {v}')
+    print()
+
+
+'''
+"""
+##################################### Set comprehensions
+numbers = {1, 50 ,49, 77, 90, 103}
+odds = {number for number in numbers if number % 2 == 1}
+third_set = {'Nissan', 'sr20', 'det', 77, 78}
+#even_oddSet = {'Odd' if number % 2 == 1 else 'Even' for number in numbers}
+#even_oddList = ['Odd' if number % 2 == 1 else 'Even' for number in numbers]
+"""
+
+class Animal:
+    def __init__(self, species, color):
+        self.species = species
+        self.color = color
+
+    def showcase(self):
+        print(f"Species: {self.species} \nColor: {self.color}")
+
+
+
+bird = Animal('Canary', 'green')
+bird.showcase()
