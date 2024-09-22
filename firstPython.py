@@ -834,15 +834,54 @@ third_set = {'Nissan', 'sr20', 'det', 77, 78}
 #even_oddList = ['Odd' if number % 2 == 1 else 'Even' for number in numbers]
 """
 
-class Animal:
-    def __init__(self, species, color):
-        self.species = species
+class Vehicle:
+    def __init__(self, make, model, color):
+        self.make = make
+        self.model = model
         self.color = color
 
-    def showcase(self):
-        print(f"Species: {self.species} \nColor: {self.color}")
+    def __str__(self):
+        return f'Make: {self.make} \nModel: {self.model} \nColor: {self.color}'
+
+    def drive(self):
+        print(f"The {self.model} started driving.")
 
 
 
-bird = Animal('Canary', 'green')
-bird.showcase()
+class SportCar(Vehicle):
+    def __init__(self, make, model, color, engine):
+        super().__init__(make, model, color)
+        self.engine = str(engine).upper()
+    
+    def drive(self):
+        print(f'You finally took the {self.model} out for some fun! ')
+
+    def engine_info(self):
+        if self.engine.count('T') >= 1:
+            print(f"The {self.make} {self.model} came with a turbocharged {self.engine}")
+        else:
+            print(f"The {self.make} {self.model} came with a {self.engine}")
+            
+
+
+class Motorcycle(SportCar):
+    def __init__(self, make, model, color, engine, rider):
+        Vehicle.__init__(make, model, color)
+        self.rider = rider
+        
+    #def drive(self):
+    #    print(f"{self.rider} is riding his {self.make} {self.model}")
+
+
+gix = Motorcycle('Suzuki', 'gsxr', 'black', 750, 'Whis')
+s15 = SportCar('Nissan', 'silvia', 'grey', 'sr20det')
+gix.drive()
+gix.engine_info()
+
+
+
+
+
+#evo = SportCar('Mitsubishi', 'Evo', 'Black', '4g63t')
+#evo.drive()
+#print(evo)
