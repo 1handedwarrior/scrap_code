@@ -833,7 +833,7 @@ third_set = {'Nissan', 'sr20', 'det', 77, 78}
 #even_oddSet = {'Odd' if number % 2 == 1 else 'Even' for number in numbers}
 #even_oddList = ['Odd' if number % 2 == 1 else 'Even' for number in numbers]
 """
-
+'''
 class Vehicle:
     def __init__(self, make, model, color):
         self.make = make
@@ -866,7 +866,7 @@ class SportCar(Vehicle):
 
 class Motorcycle(SportCar):
     def __init__(self, make, model, color, engine, rider):
-        Vehicle.__init__(make, model, color)
+        super().__init__(make, model, color, engine)
         self.rider = rider
         
     #def drive(self):
@@ -879,9 +879,10 @@ gix.drive()
 gix.engine_info()
 
 
-
-
-
 #evo = SportCar('Mitsubishi', 'Evo', 'Black', '4g63t')
 #evo.drive()
 #print(evo)
+'''
+import os
+
+os.remove('main.py')
